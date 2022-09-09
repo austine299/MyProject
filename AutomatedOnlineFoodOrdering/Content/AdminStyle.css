@@ -1,0 +1,113 @@
+﻿body {
+}
+.sidenavbar {
+    background-color: #79b20a;
+    font-size: 20px;
+    font-weight: bold;
+    height: 620px;
+    width: 200px;
+    border-color: #79b20a;
+    margin-left: -20px;
+    margin-top: 25px;
+}
+
+.sidenavbarheader {
+    background-color: #79b20a; 
+}
+.sidenavbar h4 a {
+    background-color: #79b20a;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.nav-body {
+    background-color: #79b20a;
+    background-image: linear-gradient(to right, #79b20a, #f7e318, #79b20a);
+    font-size: 30px;
+    font-weight: bold;
+    height:75px;
+    color: #fff;
+}
+
+.sidenavbar .sidenavlist li {
+    color: #fff;
+    list-style-type:none;
+}
+
+.sidenavbar .sidenavlist li a:hover{
+    background-color: #f7e318;
+    width: 130px;
+    color: #fff;
+    margin-top: 25px;
+}
+
+.sidenavbar .sidenavlist li a {
+    width: 150px;
+    color: #fff;
+    margin-top: 25px;
+}
+.body-container{
+    margin-top: 70px;
+}
+
+.create-btn {
+    border-radius: 5px;
+    height: 40px;
+    width: 150px;
+    float: right;
+    margin-bottom: 20px;
+}
+
+.create-btn a {
+    color: #fff;
+}
+
+.body-position{
+    position:relative;
+}
+
+.options {
+    color: #fff;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.options span{
+    color: #f7e318;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.option-btn {
+    border-radius: 5px;
+    height: 40px;
+    width: 65px;
+    margin-left:-3px;
+    
+}
+
+.option-btn a{
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.footer{
+    text-align:center;
+}
+
+.bckgrd {
+    background-image: url('../Images/hero-bg.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100%;
+    width: 100%;
+    color: #fff;
+    font-size: 15px;
+    font-weight:bold;
+}
+
+.table-aline{
+    text-align:center;
+}

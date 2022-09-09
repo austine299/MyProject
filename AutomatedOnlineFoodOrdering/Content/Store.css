@@ -1,0 +1,138 @@
+﻿body {
+    margin:0;
+}
+.nav-body {
+    background-color: #79b20a;
+    background-image: linear-gradient(to right, #79b20a, #f7e318, #79b20a);
+    position:fixed;
+    top:0px;
+    overflow:hidden;
+    font-size: 30px;
+    font-weight: bold;
+    height: auto;
+    padding-top:10px;
+    color: #fff !important;
+}
+
+.nav-color li a{
+    color: #fff !important;
+    font-size:20px;
+}
+
+.nav-color .logo-name a{
+    color: #fff ;
+    font-style:italic;
+}
+
+.nav-right-bar a span{
+    margin:10px;
+}
+
+.nav-right-bar span .search-box input{
+    margin-top:-50px;
+    border:none;
+    width:500px;
+    color:black;
+}
+.food {
+    position: relative;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+}
+.img-container {
+    background-color: #ffbe33;
+    height: 250px;
+    width: 340px;
+    margin-top: 15px;
+    margin-right: 40px;
+    border-radius: 10px 10px 50px 0px;
+}
+.foodbckgrd {
+    background-color: #79b20a;
+    height: 450px;
+    width: 340px;
+    border-radius: 15px 15px 10px 10px;
+    color: white;
+    justify-content: center;
+}
+
+.foodimg {
+    margin-top: 30px;
+    margin-left: 20%;
+    margin-right: 20%;
+    height: 150px;
+    border-radius:10px;
+}
+
+.price-descr-buy {
+    padding: 20px;
+    margin-top:-30px;
+}
+
+.price div.cart {
+    position: absolute;
+    margin-left: 270px;
+    margin-top: -40px;
+    background-color: #ffbe33;
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
+    text-align: center;
+    line-height: 250%;
+}
+
+.price{
+    margin-top:60px;
+}
+
+.main-body {
+    position: relative;
+}
+.menu div.main-menu{
+    text-align:center;
+    margin-top:50px;
+    margin-bottom:50px;
+}
+
+.menu h1{
+    font-weight:bolder;
+    font-style:italic;
+}
+
+.menu-list{
+    list-style-type:none;
+    margin-top:40px;
+
+}
+
+.menu-list li {
+    display: inline-block;
+    height: 40px;
+    width: 95px;
+    font-size: 20PX;
+    background-color: #79b20a;
+    color: white;
+    line-height: 200%;
+    border-radius: 30px;
+}
+
+.menu-list li a {
+    color: white;
+    text-decoration:none;
+}
+
+.menu-list li a:hover {
+    display:inline-block;
+    height: 40px;
+    width:95px;
+    font-size:20PX;
+    background-color: #ffbe33;
+    color: white;
+    border-radius:30px;
+}
+
+
+
+
+

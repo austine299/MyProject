@@ -6,25 +6,39 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link href ="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css " rel ="stylesheet">
+    <link href="~/Content/Store.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    <div class="container-fluid navbar-fixed-top nav-body ">
+        <div class=" nav-color navbar">
+            <div class="navbar-header logo-name col-xs-12 col-sm-5 col-lg-3">
+                @Html.ActionLink("SonicFood", "Index", "Home", new { area = "" }, new { @class = "" })
             </div>
-            <div class="navbar-collapse collapse">
+            <div class="col-xs-12 col-sm-7 col-lg-4">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Home", "Index", "Home", new { }, new { @class = "" })</li>
+                    <li>@Html.ActionLink("Menu", "StoreIndex", "Store", new { area = "" }, new { @class = "" })</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "" })</li>
+                    <li>@Html.ActionLink("About", "Contact", "Home", new { area = "" }, new { @class = "" })</li>
                 </ul>
             </div>
+            <div class=" col-sm-6 col-lg-1"></div>
+            <div class="nav-right-bar col-xs-12 col-sm-6 col-lg-4">
+                <span class="dropdown">
+                    <span class="dropdown-toggle" type="button" data-toggle="dropdown">
+                        <a href="#"><span class="glyphicon glyphicon-search"></span></a>
+                    </span>
+                    <span class=" dropdown-menu search-box">
+                        <input type="text" placeholder="search engine" />
+                    </span>
+                </span>
+                <a href="#"><span class="glyphicon glyphicon-user"></span></a>
+                <a href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a>
+
+                <button class="btn-danger">Order Now</button>
+            </div>
+
         </div>
     </div>
     <div class="container body-content">

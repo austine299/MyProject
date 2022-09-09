@@ -77,3 +77,7 @@ C:\Users\chidima\OneDrive\Documents\PROJECT\AutomatedOnlineFoodOrdering\obj\Debu
 C:\Users\chidima\OneDrive\Documents\PROJECT\AutomatedOnlineFoodOrdering\obj\Debug\AutomatedOnlineFoodOrdering.csproj.CopyComplete
 C:\Users\chidima\OneDrive\Documents\PROJECT\AutomatedOnlineFoodOrdering\obj\Debug\AutomatedOnlineFoodOrdering.dll
 C:\Users\chidima\OneDrive\Documents\PROJECT\AutomatedOnlineFoodOrdering\obj\Debug\AutomatedOnlineFoodOrdering.pdb
+C:\Users\chidima\OneDrive\Documents\PROJECT\AutomatedOnlineFoodOrdering\bin\EntityFramework.dll
+C:\Users\chidima\OneDrive\Documents\PROJECT\AutomatedOnlineFoodOrdering\bin\EntityFramework.SqlServer.dll
+C:\Users\chidima\OneDrive\Documents\PROJECT\AutomatedOnlineFoodOrdering\bin\EntityFramework.xml
+C:\Users\chidima\OneDrive\Documents\PROJECT\AutomatedOnlineFoodOrdering\bin\EntityFramework.SqlServer.xml

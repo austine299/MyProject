@@ -1,0 +1,68 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/AdminStyle.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="body-position">
+        <div class="container-fluid navbar-fixed-top nav-body">
+            <div class="row sidenavbarheader">
+                <div class="col-sm-6 col-lg-2 ">
+                    <div class="dropdown">
+                        <div class="dropdown-toggle" type="button" data-toggle="dropdown">
+                            <h4 class="options">SonicFood <span class="glyphicon glyphicon-menu-hamburger "></span></h4>
+                        </div>
+
+                        <div class=" dropdown-menu sidenavbar">
+                            <ul class="sidenavlist">
+                                <li> @Html.ActionLink("Dashboard", "DashboardIndex", "Dashboard", new { area = "" }, new { @class = "navbar-brand glyphicon glyphicon-dashboard" })</li>
+                                <li> @Html.ActionLink("Categories", "CategoryIndex", "Category", new { area = "" }, new { @class = "navbar-brand glyphicon glyphicon-duplicate" })</li>
+                                <li> @Html.ActionLink("Foods", "FoodIndex", "Food", new { area = "" }, new { @class = "navbar-brand glyphicon glyphicon-apple" })</li>
+                                <li> @Html.ActionLink("Payments", "PaymentIndex", "Payment", new { area = "" }, new { @class = "navbar-brand glyphicon glyphicon-credit-card" })</li>
+                                <li> @Html.ActionLink("Users", "UsersIndex", "Users", new { area = "" }, new { @class = "navbar-brand glyphicon glyphicon-user" })</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class=" navbody col-sm-6 col-lg-10">
+
+                    <div class="navbar-collapse  container">
+                        <div class="nav navbar-nav col-sm-1 col-lg-9 "></div>
+                        <div class="nav navbar-nav col-sm-11 col-lg-3">
+                            Wellcome
+                            <span class="glyphicon glyphicon-user"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid body-content container-position bckgrd">
+            <div class="row body-container">
+                <div class=" col-lg-1"> </div>
+                <div class=" col-sm-12 col-lg-10">
+                    @RenderBody()
+                </div>
+                <div class="col-lg-1"> </div>
+            </div>
+
+        </div>
+        <div class="container-fluid panel-footer footer">
+            <footer class="">
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+                <p>wellcome</p>
+            </footer>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
