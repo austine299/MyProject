@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e7d35fddad1d4cdba4f287258ecfab64" Name="Diagram1">
+        <EntityTypeShape EntityType="OnlineFoodOrderingDBModel.CART" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineFoodOrderingDBModel.CATEGORy" Width="1.5" PointX="1.5" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineFoodOrderingDBModel.CONTACT" Width="1.5" PointX="3.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineFoodOrderingDBModel.FOOD" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineFoodOrderingDBModel.ORDER" Width="1.5" PointX="6" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineFoodOrderingDBModel.PAYMENT" Width="1.5" PointX="3.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineFoodOrderingDBModel.sysdiagram" Width="1.5" PointX="5.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineFoodOrderingDBModel.USER" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <AssociationConnector Association="OnlineFoodOrderingDBModel.FK_CARTS_FOOD" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineFoodOrderingDBModel.FK_CARTS_USERS" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineFoodOrderingDBModel.FK_FOOD_CATEGORIES" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineFoodOrderingDBModel.FK_ORDERS_FOOD" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineFoodOrderingDBModel.FK_ORDERS_PAYMENT" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineFoodOrderingDBModel.FK_ORDERS_USERS" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

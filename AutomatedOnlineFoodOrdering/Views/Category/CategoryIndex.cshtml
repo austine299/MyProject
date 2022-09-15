@@ -1,0 +1,45 @@
+﻿@model IEnumerable<AutomatedOnlineFoodOrdering.Models.CATEGORy>
+
+@{
+    ViewBag.Title = "CategoryIndex";
+    Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<h2>CategoryIndex</h2>
+
+<button class="btn-primary create-btn">
+    @Html.ActionLink("Add New Category", "AddCategory")
+</button>
+<table class="table">
+    <tr>
+        <th>ID </th>
+        <th>FOOD CATEGORY NAME</th>
+        <th>AVAILABLE</th>
+        <th>THE DATE IT WAS ADDED</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreateDate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CategoryId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CategoryId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CategoryId })
+            </td>
+        </tr>
+    }
+
+</table>
