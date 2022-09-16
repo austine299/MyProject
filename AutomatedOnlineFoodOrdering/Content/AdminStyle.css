@@ -111,3 +111,13 @@
 .table-aline{
     text-align:center;
 }
+
+li a.nav-hovering:hover {
+    height: 40px;
+    width: 95px;
+    font-size: 20PX;
+    background-color: #ffbe33;
+    color: white;
+    border-radius: 30px;
+}
+

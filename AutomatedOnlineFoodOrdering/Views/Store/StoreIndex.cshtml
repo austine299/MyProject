@@ -1,4 +1,7 @@
-﻿@model IEnumerable<AutomatedOnlineFoodOrdering.Models.FOOD>
+﻿@using AutomatedOnlineFoodOrdering.Models;
+@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<FOOD>
 
 @{
     ViewBag.Title = "StoreIndex";
@@ -10,13 +13,10 @@
     <div class="menu">
         <div class="main-menu">
             <h1>Our Menu</h1>
-            <ul class="menu-list">
-                <li class="active-menu">@Html.ActionLink("All", "Index", "Home")</li>
-                <li class="active-menu">@Html.ActionLink("Burger", "Index", "Home")</li>
-                <li class="active-menu">@Html.ActionLink("Pizza", "Index", "Home")</li>
-                <li class="active-menu">@Html.ActionLink("Pasta", "Index", "Home")</li>
-                <li class="active-menu">@Html.ActionLink("Fries", "Index", "Home")</li>
-            </ul>
+            <div class="">
+                @Html.Action("ViewCategory", "Store")
+                
+            </div>
         </div>
         <div class="container food">
 
@@ -26,28 +26,49 @@
                     <div class="foodbckgrd">
 
                         <div class="img-container">
+                            @*<img class="img-responsive" title="Click to View Product details" src="~/FoodImg/@item.ImageUrl" />*@
                             <img src="~/Images/Plantainfufu3.jpg" class="foodimg" />
+                            <div class="pull-right" style="position:relative; top:-180px;">
+                                @if (item.IsActive == true)
+                                {
+                                    <div class="food-avaliable col-md-12" style="background-color: #79b20a; height:30px;line-height:30px;">Avaliable</div>
+                                }
+                                else
+                                {
+                                    <div class="food-not-avaliable col-md-12" style="background-color: orangered; height: 30px; line-height: 30px; ">Not avaliable</div>
+                                }
+                            </div>
                         </div>
                         <div class="price-descr-buy">
                             <h1>
                                 @Html.DisplayFor(modelItem => item.FoodName)
                             </h1>
-                            <div>
+                            <div class="">
                                 @Html.DisplayFor(modelItem => item.Description)
                             </div>
                             <div class="price">
-                                <h4> @Html.DisplayFor(modelItem => item.FoodPrice)</h4>
+                                <h2 class="">&#8358 @Html.DisplayFor(modelItem => item.FoodPrice)</h2>
                                 <div class="cart">
-                                    @Html.ActionLink("Order Now", "Order", new { }, new {@class="btn-primary" })
-                                    <span class="glyphicon glyphicon-shopping-cart"></span>
+                                    @Html.ActionLink("OrderNow", "Order", new { }, new {@class= " glyphicon glyphicon-shopping-cart", 
+                                        @style="color:white; text-decoration:none" })
+                                    
                                 </div>
                             </div>
-
+                            
                         </div>
+                        
                     </div>
                 </div>
 
             }
         </div>
+    </div>
+    <br />
+    <br />
+    <div>
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+    </div>
+    <div>
+        @Html.PagedListPager(Model, page => Url.Action("Index", new {page = page, category =ViewBag.category}))
     </div>
 </div>

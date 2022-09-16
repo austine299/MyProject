@@ -16,8 +16,8 @@
                 @Html.ActionLink("SonicFood", "Index", "Home", new { area = "" }, new { @class = "" })
             </div>
             <div class="col-xs-12 col-sm-7 col-lg-4">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { }, new { @class = "" })</li>
+                <ul class="nav navbar-nav nav-hovering">
+                    <li>@Html.ActionLink("Home", "Home", "Store", new { }, new { @class = "" })</li>
                     <li>@Html.ActionLink("Menu", "StoreIndex", "Store", new { area = "" }, new { @class = "" })</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "" })</li>
                     <li>@Html.ActionLink("About", "Contact", "Home", new { area = "" }, new { @class = "" })</li>
@@ -41,7 +41,7 @@
 
         </div>
     </div>
-    <div class="container body-content">
+    <div class="backgrnd-img container-fluid body-content">
         @RenderBody()
         <hr />
         <footer>

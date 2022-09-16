@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AutomatedOnlineFoodOrdering.Models;
+using System.Data.Entity;
 
 namespace AutomatedOnlineFoodOrdering.Controllers.Admin_Folder
 {
@@ -21,9 +22,14 @@ namespace AutomatedOnlineFoodOrdering.Controllers.Admin_Folder
         }
 
         // GET: Category/Details/5
-        public ActionResult Details(int id)
+        public ActionResult CategoryDetails(int? id)
         {
-            return View();
+            using (DBModels dbModel = new DBModels())
+            {
+
+                return View(dbModel.CATEGORIES.Where(x => x.CategoryId == id).FirstOrDefault());
+
+            }
         }
 
         // GET: Category/Create
@@ -48,7 +54,7 @@ namespace AutomatedOnlineFoodOrdering.Controllers.Admin_Folder
 
                 }
 
-                return RedirectToAction("Index");
+                return RedirectToAction("CategoryIndex");
             }
             catch
             {
@@ -57,20 +63,31 @@ namespace AutomatedOnlineFoodOrdering.Controllers.Admin_Folder
         }
 
         // GET: Category/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult EditCategory(int? id)
         {
-            return View();
+            using (DBModels dbModel = new DBModels())
+            {
+
+                return View(dbModel.CATEGORIES.Where(x => x.CategoryId == id).FirstOrDefault());
+
+            }
         }
 
         // POST: Category/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult EditCategory(int? id, CATEGORy category)
         {
             try
             {
                 // TODO: Add update logic here
+                using (DBModels dbModel = new DBModels())
+                {
 
-                return RedirectToAction("Index");
+                    dbModel.Entry(category).State = EntityState.Modified;
+                    dbModel.SaveChanges();
+
+                }
+                return RedirectToAction("CategoryIndex");
             }
             catch
             {
@@ -79,20 +96,30 @@ namespace AutomatedOnlineFoodOrdering.Controllers.Admin_Folder
         }
 
         // GET: Category/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult DeleteCategory(int? id)
         {
-            return View();
+            using (DBModels dbModel = new DBModels())
+            {
+                return View(dbModel.CATEGORIES.Where(x => x.CategoryId == id).FirstOrDefault());
+            }
         }
 
         // POST: Category/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult DeleteCategory(int id, FormCollection collection)
         {
             try
             {
                 // TODO: Add delete logic here
 
-                return RedirectToAction("Index");
+                using (DBModels dbModel = new DBModels())
+                {
+
+                    CATEGORy category = dbModel.CATEGORIES.Where(x => x.CategoryId == id).FirstOrDefault();
+                    dbModel.CATEGORIES.Remove(category);
+                    dbModel.SaveChanges();
+                }
+                return RedirectToAction("CategoryIndex");
             }
             catch
             {

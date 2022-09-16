@@ -81,3 +81,7 @@ C:\Users\chidima\OneDrive\Documents\PROJECT\AutomatedOnlineFoodOrdering\bin\Enti
 C:\Users\chidima\OneDrive\Documents\PROJECT\AutomatedOnlineFoodOrdering\bin\EntityFramework.SqlServer.dll
 C:\Users\chidima\OneDrive\Documents\PROJECT\AutomatedOnlineFoodOrdering\bin\EntityFramework.xml
 C:\Users\chidima\OneDrive\Documents\PROJECT\AutomatedOnlineFoodOrdering\bin\EntityFramework.SqlServer.xml
+C:\Users\chidima\OneDrive\Documents\PROJECT\AutomatedOnlineFoodOrdering\bin\PagedList.dll
+C:\Users\chidima\OneDrive\Documents\PROJECT\AutomatedOnlineFoodOrdering\bin\PagedList.xml
+C:\Users\chidima\OneDrive\Documents\PROJECT\AutomatedOnlineFoodOrdering\bin\PagedList.Mvc.dll
+C:\Users\chidima\OneDrive\Documents\PROJECT\AutomatedOnlineFoodOrdering\bin\PagedList.Mvc.xml

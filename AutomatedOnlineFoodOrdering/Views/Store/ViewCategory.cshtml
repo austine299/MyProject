@@ -1,0 +1,20 @@
+﻿
+@using AutomatedOnlineFoodOrdering.Models
+@model List<CATEGORy>
+
+<ul class="menu-list">
+    <li class="active-menu">@Html.ActionLink("All", "StoreIndex", "Store")</li>
+    @{
+
+        foreach (var item in Model)
+        {
+
+
+            @*<li class="active-menu"><a href="">@item.Name</a></li>*@
+            <li class="active-menu">@Html.ActionLink(@item.Name, "StoreIndex", "Store", new {Page = 1, CATEGORy = @item.CategoryId}, null)</li>
+
+
+        }
+
+    }
+</ul>

@@ -35,9 +35,9 @@
                 @Html.DisplayFor(modelItem => item.CreateDate)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.CategoryId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.CategoryId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.CategoryId })
+                <button class="btn-primary option-btn"> @Html.ActionLink("Edit", "EditCategory", new { id = item.CategoryId }) </button>
+                <button class="btn-primary option-btn"> @Html.ActionLink("Details", "CategoryDetails", new { id = item.CategoryId }) </button>
+                <button class="btn-danger option-btn"> @Html.ActionLink("Delete", "DeleteCategory", new { id = item.CategoryId })</button>
             </td>
         </tr>
     }
