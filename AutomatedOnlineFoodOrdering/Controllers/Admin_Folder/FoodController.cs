@@ -16,7 +16,7 @@ namespace AutomatedOnlineFoodOrdering.Controllers.Admin_Folder
             using (DBModels dbModel = new DBModels())
             {
 
-                return View(dbModel.FOODs.ToList());
+                return View(dbModel.FOODs.OrderByDescending(x => x.FoodId).ToList());
 
             }
         }

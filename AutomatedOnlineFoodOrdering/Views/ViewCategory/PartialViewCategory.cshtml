@@ -1,0 +1,19 @@
+﻿
+@using AutomatedOnlineFoodOrdering.Models
+@model List<CATEGORy>
+
+<ul class="menu-list">
+    @{
+
+        foreach (var item in Model)
+        {
+
+
+        <li class="active-menu"><a href="">@item.Name</a></li>
+
+
+
+        }
+
+    }
+</ul>
