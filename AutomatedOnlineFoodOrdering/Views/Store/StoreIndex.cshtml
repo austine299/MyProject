@@ -11,15 +11,15 @@
 
 <div class="main-body">
     <div class="menu">
+       
         <div class="main-menu">
             <h1>Our Menu</h1>
             <div class="">
                 @Html.Action("ViewCategory", "Store")
-                
+
             </div>
         </div>
         <div class="container food">
-
             @foreach (var item in Model)
             {
                 <div class="col-sm-6 col-lg-4 ">
@@ -27,7 +27,7 @@
 
                         <div class="img-container">
                             @*<img class="img-responsive" title="Click to View Product details" src="~/FoodImg/@item.ImageUrl" />*@
-                            <img src="~/Images/Plantainfufu3.jpg" class="foodimg" />
+                            <img src="~/FoodImg/@item.ImageUrl" class="foodimg" style="width: 200px; " />
                             <div class="pull-right" style="position:relative; top:-180px;">
                                 @if (item.IsActive == true)
                                 {
@@ -49,18 +49,32 @@
                             <div class="price">
                                 <h2 class="">&#8358 @Html.DisplayFor(modelItem => item.FoodPrice)</h2>
                                 <div class="cart">
-                                    @Html.ActionLink("OrderNow", "Order", new { }, new {@class= " glyphicon glyphicon-shopping-cart", 
-                                        @style="color:white; text-decoration:none" })
-                                    
+                                    @if (item.FoodQuantity   > 0)
+                                    {
+                                        using (Html.BeginForm("AddToCart", "Store",
+                                                new { foodId = item.FoodId }, FormMethod.Post))
+                                        {
+
+                                            <button type="submit">
+                                                <i class=" glyphicon glyphicon-shopping-cart"
+                                                   style="text-decoration:none"></i>
+                                            </button>
+
+                                        }
+
+                                    }
+
+
                                 </div>
                             </div>
-                            
+
                         </div>
-                        
+
                     </div>
                 </div>
 
             }
+
         </div>
     </div>
     <br />
@@ -69,6 +83,6 @@
         Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
     </div>
     <div>
-        @Html.PagedListPager(Model, page => Url.Action("Index", new {page = page, category =ViewBag.category}))
+        @Html.PagedListPager(Model, page => Url.Action("StoreIndex","Store", new {page = page, category =ViewBag.category}))
     </div>
 </div>

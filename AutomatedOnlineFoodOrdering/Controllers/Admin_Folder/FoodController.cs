@@ -10,13 +10,28 @@ namespace AutomatedOnlineFoodOrdering.Controllers.Admin_Folder
 {
     public class FoodController : Controller
     {
+        public DBModels dbModel = new DBModels();
+        public List<SelectListItem> GetCategory()
+        {
+            List<SelectListItem> list = new List<SelectListItem>();
+            var category = dbModel.CATEGORIES.ToList();
+            foreach(var item in category)
+            {
+                list.Add(new SelectListItem { Value = item.CategoryId.ToString(), Text = item.Name });
+            }
+
+            return list;
+
+        }
         // GET: Food
-        public ActionResult FoodIndex()
+        public ActionResult FoodIndex(string search)
         {
             using (DBModels dbModel = new DBModels())
             {
 
-                return View(dbModel.FOODs.OrderByDescending(x => x.FoodId).ToList());
+                ViewBag.CategoryList = GetCategory();
+                return View(dbModel.FOODs.OrderByDescending(x => x.FoodId)
+                        .Where(x => x.FoodName.StartsWith(search) || search == null).ToList());
 
             }
         }
@@ -27,6 +42,7 @@ namespace AutomatedOnlineFoodOrdering.Controllers.Admin_Folder
             using (DBModels dbModel = new DBModels())
             {
 
+                ViewBag.CategoryList = GetCategory();
                 return View(dbModel.FOODs.Where(x => x.FoodId== id).FirstOrDefault());
 
             }
@@ -36,20 +52,31 @@ namespace AutomatedOnlineFoodOrdering.Controllers.Admin_Folder
         // GET: Admin/Create
         public ActionResult AddFood()
         {
+            ViewBag.CategoryList = GetCategory();
             return View();
         }
 
         // POST: Admin/Create
         [HttpPost]
-        public ActionResult AddFood(FOOD food)
+        public ActionResult AddFood(FOOD food, HttpPostedFileBase file)
         {
-            try
+            try 
             {
                 // TODO: Add insert logic here
 
                 using (DBModels dbModel = new DBModels())
                 {
+                    string pic = null;
+                    if(file != null)
+                    {
+                        pic = System.IO.Path.GetFileName(file.FileName);
+                        string path = System.IO.Path.Combine(Server.MapPath("~/FoodImg/"), pic);
 
+                        file.SaveAs(path);
+
+                    }
+                    food.ImageUrl = pic;
+                    food.createDate = DateTime.Now;
                     dbModel.FOODs.Add(food);
                     dbModel.SaveChanges();
 
@@ -69,6 +96,7 @@ namespace AutomatedOnlineFoodOrdering.Controllers.Admin_Folder
             using (DBModels dbModel = new DBModels())
             {
 
+                ViewBag.CategoryList = GetCategory();
                 return View(dbModel.FOODs.Where(x => x.FoodId == id).FirstOrDefault());
 
             }
@@ -76,14 +104,24 @@ namespace AutomatedOnlineFoodOrdering.Controllers.Admin_Folder
 
         // POST: Food/Edit/5
         [HttpPost]
-        public ActionResult EditFood(int? id, FOOD food)
+        public ActionResult EditFood(int? id, FOOD food, HttpPostedFileBase file)
         {
             try
             {
                 // TODO: Add update logic here
                 using (DBModels dbModel = new DBModels())
                 {
-                    
+                    string pic = null;
+                    if (file != null)
+                    {
+                        pic = System.IO.Path.GetFileName(file.FileName);
+                        string path = System.IO.Path.Combine(Server.MapPath("~/FoodImg/"), pic);
+
+                        file.SaveAs(path);
+
+                    }
+                    food.ImageUrl = file !=null ? pic : food.ImageUrl;
+                    food.createDate = DateTime.Now;
                     dbModel.Entry(food).State = EntityState.Modified;
                     dbModel.SaveChanges();
 
@@ -101,6 +139,7 @@ namespace AutomatedOnlineFoodOrdering.Controllers.Admin_Folder
         {
             using (DBModels dbModel = new DBModels())
             {
+                ViewBag.CategoryList = GetCategory();
                 return View(dbModel.FOODs.Where(x => x.FoodId == id).FirstOrDefault());
             }
         }
@@ -119,7 +158,7 @@ namespace AutomatedOnlineFoodOrdering.Controllers.Admin_Folder
                     dbModel.FOODs.Remove(food);
                     dbModel.SaveChanges();
                 }
-                return RedirectToAction("Index");
+                return RedirectToAction("FoodIndex");
             }
             catch
             {

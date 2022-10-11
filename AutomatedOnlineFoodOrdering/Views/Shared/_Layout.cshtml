@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿
+@using AutomatedOnlineFoodOrdering.Models
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -33,9 +35,29 @@
                         <input type="text" placeholder="search engine" />
                     </span>
                 </span>
-                <a href="#"><span class="glyphicon glyphicon-user"></span></a>
-                <a href="#"><span class="glyphicon glyphicon-shopping-cart"></span></a>
 
+                
+                <a href="#"><span class="glyphicon glyphicon-user"></span></a>
+                <span class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle" style="text-decoration:none">
+                        <span class="glyphicon glyphicon-shopping-cart"></span>(0)<b class="caret"></b>
+                    </a>
+                    <span class="dropdown-menu">
+                        @if (Session["cart"] != null)
+                        {
+                            foreach (var item in (List<CART>)Session["cart"])
+                            {
+
+                                <span style="padding:5px;"><a href="">@item.FOOD.FoodName (@item.Quantity)</a></span><br />
+
+                            }
+
+                        }
+                        <span class="divider"></span>
+                        <span >IT</span>
+
+                    </span>
+                </span>
                 <button class="btn-danger">Order Now</button>
             </div>
 

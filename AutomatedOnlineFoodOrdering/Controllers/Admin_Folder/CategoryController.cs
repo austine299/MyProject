@@ -11,12 +11,12 @@ namespace AutomatedOnlineFoodOrdering.Controllers.Admin_Folder
     public class CategoryController : Controller
     {
         // GET: Category
-        public ActionResult CategoryIndex()
+        public ActionResult CategoryIndex(string search)
         {
             using (DBModels dbModel = new DBModels())
             {
 
-                return View(dbModel.CATEGORIES.ToList());
+                return View(dbModel.CATEGORIES.Where(x => x.Name.StartsWith(search) || search == null).ToList());
 
             }
         }

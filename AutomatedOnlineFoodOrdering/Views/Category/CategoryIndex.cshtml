@@ -5,11 +5,17 @@
     Layout = "~/Views/Shared/_AdminLayoutPage.cshtml";
 }
 
-<h2>CategoryIndex</h2>
 
 <button class="btn-primary create-btn">
     @Html.ActionLink("Add New Category", "AddCategory")
 </button>
+@using (Html.BeginForm("CategoryIndex", "Category", FormMethod.Get, new { @style = "color:black;" }))
+{
+
+    @Html.TextBox("search")
+    <input type="submit" value="Search" />
+
+}
 <table class="table">
     <tr>
         <th>ID </th>
@@ -18,28 +24,33 @@
         <th>THE DATE IT WAS ADDED</th>
         <th></th>
     </tr>
-
-    @foreach (var item in Model)
+    @if (Model.Count() == 0)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CategoryId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsActive)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreateDate)
-            </td>
-            <td>
-                <button class="btn-primary option-btn"> @Html.ActionLink("Edit", "EditCategory", new { id = item.CategoryId }) </button>
-                <button class="btn-primary option-btn"> @Html.ActionLink("Details", "CategoryDetails", new { id = item.CategoryId }) </button>
-                <button class="btn-danger option-btn"> @Html.ActionLink("Delete", "DeleteCategory", new { id = item.CategoryId })</button>
-            </td>
-        </tr>
+        <tr><td style="color:red; font-size:20px;">No Match found</td></tr>
     }
-
-</table>
+    else
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsActive)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreateDate)
+                </td>
+                <td>
+                    <button class="btn-primary option-btn"> @Html.ActionLink("Edit", "EditCategory", new { id = item.CategoryId }) </button>
+                    <button class="btn-primary option-btn"> @Html.ActionLink("Details", "CategoryDetails", new { id = item.CategoryId }) </button>
+                    <button class="btn-danger option-btn"> @Html.ActionLink("Delete", "DeleteCategory", new { id = item.CategoryId })</button>
+                </td>
+            </tr>
+        }
+    }
+    </table>

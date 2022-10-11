@@ -215,7 +215,9 @@
       <LastGenOutput>DataModel.cs</LastGenOutput>
     </Content>
     <Content Include="preview\admin page.PNG" />
-    <Content Include="preview\storeIndex.PNG" />
+    <Content Include="preview\fruit category.PNG" />
+    <Content Include="preview\all category.PNG" />
+    <Content Include="preview\swallo category.PNG" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Dockerfile" />

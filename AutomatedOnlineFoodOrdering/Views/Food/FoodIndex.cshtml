@@ -8,6 +8,13 @@
 <button class="btn-primary create-btn">
     @Html.ActionLink("Add New Food", "AddFood")
 </button>
+@using (Html.BeginForm("FoodIndex", "Food", FormMethod.Get, new { @style = "color:black;" }))
+{
+
+    @Html.TextBox("search")
+    <input type="submit" value="Search" />
+
+}
 <table class="table">
     <tr class=" table-aline " style=" text-align:center;">
         <th>
@@ -17,13 +24,7 @@
             Name
         </th>
         <th>
-            Food Description
-        </th>
-        <th>
             Price
-        </th>
-        <th>
-            Food Quantity
         </th>
         <th>
             Image Url
@@ -39,45 +40,50 @@
         </th>
         <th></th>
     </tr>
+    @{
+        List<SelectListItem> data = ViewBag.CategoryList;
 
-    @foreach (var item in Model)
+
+}
+    @if (Model.Count() == 0)
     {
-        <tr>
-            <td class=" table-aline">
-                @Html.DisplayFor(modelItem => item.FoodId)
-            </td>
-            <td class=" table-aline">
-                @Html.DisplayFor(modelItem => item.FoodName)
-            </td>
-            <td class=" table-aline">
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td class=" table-aline">
-                @Html.DisplayFor(modelItem => item.FoodPrice)
-            </td>
-            <td class=" table-aline">
-                @Html.DisplayFor(modelItem => item.FoodQuantity)
-            </td>
-            <td class=" table-aline">
-                @Html.DisplayFor(modelItem => item.ImageUrl)
-            </td>
-            <td class=" table-aline">
-                @Html.DisplayFor(modelItem => item.CategoryId)
-            </td>
-            <td class=" table-aline">
-                @Html.DisplayFor(modelItem => item.IsActive)
-            </td>
-            <td class=" table-aline">
-                @Html.DisplayFor(modelItem => item.createDate)
-            </td>
-            <td>
-                <button class="btn-primary option-btn">@Html.ActionLink("Edit", "EditFood", new { id = item.FoodId }) </button>
-                <button class="btn-primary option-btn">@Html.ActionLink("Details", "FoodDetails", new { id = item.FoodId }) </button>
-                <button class="btn-danger option-btn">@Html.ActionLink("Delete", "DeleteFood", new { id = item.FoodId })</button>
-            </td>
-        </tr>
+        <tr><td style="color:red; font-size:20px;">No Match found</td></tr>
     }
+    else
+    {
+        foreach (var item in Model)
+        {
 
+            <tr>
+                <td class=" table-aline">
+                    @Html.DisplayFor(modelItem => item.FoodId)
+                </td>
+                <td class=" table-aline">
+                    @Html.DisplayFor(modelItem => item.FoodName)
+                </td>
+                <td class=" table-aline">
+                    @Html.DisplayFor(modelItem => item.FoodPrice)
+                </td>
+                <td class=" table-aline">
+                    @Html.DisplayFor(modelItem => item.ImageUrl)
+                </td>
+                <td class=" table-aline">
+                    @Html.DisplayFor(modelItem => item.CategoryId)
+                </td>
+                <td class=" table-aline">
+                    @Html.DisplayFor(modelItem => item.IsActive)
+                </td>
+                <td class=" table-aline">
+                    @Html.DisplayFor(modelItem => item.createDate)
+                </td>
+                <td>
+                    <button class="btn-primary option-btn">@Html.ActionLink("Edit", "EditFood", new { id = item.FoodId }) </button>
+                    <button class="btn-primary option-btn">@Html.ActionLink("Details", "FoodDetails", new { id = item.FoodId }) </button>
+                    <button class="btn-danger option-btn">@Html.ActionLink("Delete", "DeleteFood", new { id = item.FoodId })</button>
+                </td>
+            </tr>
+        }
+    }
 </table>
 
 
@@ -88,51 +94,51 @@
 
 @*@model IEnumerable<AutomatedOnlineFoodOrdering.Models.FOOD>
 
-@{
-    ViewBag.Title = "StoreIndex";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+    @{
+        ViewBag.Title = "StoreIndex";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
 
 
-<div class="main-body">
-    <div class="menu">
-        <div class="main-menu">
-            <h1>Our Menu</h1>
-            <ul class="menu-list">
-                <li class="active-menu">@Html.ActionLink("All", "Index", "Home")</li>
-                <li>@Html.ActionLink("Burger", "Index", "Home")</li>
-                <li>@Html.ActionLink("Pizza", "Index", "Home")</li>
-                <li>@Html.ActionLink("Pasta", "Index", "Home")</li>
-                <li>@Html.ActionLink("Fries", "Index", "Home")</li>
-            </ul>
-        </div>
-        <div class="container food">
+    <div class="main-body">
+        <div class="menu">
+            <div class="main-menu">
+                <h1>Our Menu</h1>
+                <ul class="menu-list">
+                    <li class="active-menu">@Html.ActionLink("All", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Burger", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Pizza", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Pasta", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Fries", "Index", "Home")</li>
+                </ul>
+            </div>
+            <div class="container food">
 
-            @foreach (var item in Model)
-            {
-                <div class="col-sm-6 col-lg-4 ">
-                    <div class="foodbckgrd">
+                @foreach (var item in Model)
+                {
+                    <div class="col-sm-6 col-lg-4 ">
+                        <div class="foodbckgrd">
 
-                        <div class="img-container">
-                            <img src="~/Images/f7.png" class="foodimg" />
-                        </div>
-                        <div class="price-descr-buy">
-                            <h1>
-                                @Html.DisplayFor(modelItem => item.FoodName)
-                            </h1>
-                            <div>
-                                @Html.DisplayFor(modelItem => item.Description)
+                            <div class="img-container">
+                                <img src="~/Images/f7.png" class="foodimg" />
                             </div>
-                            <div class="price">
-                                <h4> @Html.DisplayFor(modelItem => item.FoodPrice)</h4>
-                                <div class="cart"><span class="glyphicon glyphicon-shopping-cart"></span></div>
-                            </div>
+                            <div class="price-descr-buy">
+                                <h1>
+                                    @Html.DisplayFor(modelItem => item.FoodName)
+                                </h1>
+                                <div>
+                                    @Html.DisplayFor(modelItem => item.Description)
+                                </div>
+                                <div class="price">
+                                    <h4> @Html.DisplayFor(modelItem => item.FoodPrice)</h4>
+                                    <div class="cart"><span class="glyphicon glyphicon-shopping-cart"></span></div>
+                                </div>
 
+                            </div>
                         </div>
                     </div>
-                </div>
 
-            }
+                }
+            </div>
         </div>
-    </div>
-</div>*@
+    </div>*@

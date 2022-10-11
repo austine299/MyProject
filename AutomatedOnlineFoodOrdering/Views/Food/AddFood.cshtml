@@ -8,7 +8,7 @@
 <h2>Add New Food</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("AddFood", "Food", FormMethod.Post, new{enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     
@@ -55,10 +55,15 @@
             </div>
         </div>
 
+        @{ 
+            List<SelectListItem> data = ViewBag.CategoryList;
+        }
+
         <div class="form-group">
             @Html.LabelFor(model => model.CategoryId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CategoryId, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.CategoryId, data, "--Select--",
+                    new { @class = "form-control" } )
                 @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
             </div>
         </div>

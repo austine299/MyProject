@@ -9,9 +9,10 @@ using System.Net;
 
 
 namespace AutomatedOnlineFoodOrdering.Controllers.Store_Folder
-{
+{  
     public class StoreController : Controller
     {
+        DBModels dbModel = new DBModels();
         // GET: Store
         public ActionResult Home()
         {
@@ -29,12 +30,13 @@ namespace AutomatedOnlineFoodOrdering.Controllers.Store_Folder
             }
         }
 
+        
         public ActionResult StoreIndex(int? page, int? category)
         {
             using (DBModels dbModel = new DBModels())
             {
                 var pageNumber = page ?? 1;
-                var pageSize = 10;
+                var pageSize = 9;
                 if (category != null)
                 {
                     ViewBag.category = category;
@@ -46,7 +48,7 @@ namespace AutomatedOnlineFoodOrdering.Controllers.Store_Folder
                 {
                     return View(dbModel.FOODs.OrderByDescending(x => x.FoodId).ToPagedList(pageNumber, pageSize));
                 }
-                return View(dbModel.FOODs.OrderByDescending(x=>x.FoodId).ToPagedList(pageNumber, pageSize));
+                
 
             }
         }
@@ -56,72 +58,36 @@ namespace AutomatedOnlineFoodOrdering.Controllers.Store_Folder
         public ActionResult Details(int id)
         {
             return View();
-        }
+        } 
+        public ActionResult AddToCart(int foodId)
+        {
+            if (Session["cart"] == null)
+            {
+                List<CART> cart = new List<CART>();
+                var food = dbModel.FOODs.Find(foodId);
+                cart.Add(new CART()
+                {
+                    FOOD = food,
+                    Quantity = 1
+                });
+                Session["cart"] = cart;
+            }
+            else
+            {
+                List<CART> cart = ( List<CART>) Session["cart"];
+                var food = dbModel.FOODs.Find(foodId);
+                cart.Add(new CART()
+                {
+                    FOOD = food,
+                    Quantity = 1
+                });
+                Session["cart"] = cart;
+            }
+            
+            return Redirect("StoreIndex");
+        } 
 
         // GET: Store/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Store/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Store/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Store/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Store/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Store/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+       
     }
 }
