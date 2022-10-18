@@ -29,9 +29,13 @@ namespace AutomatedOnlineFoodOrdering.Controllers.Admin_Folder
             using (DBModels dbModel = new DBModels())
             {
 
+<<<<<<< HEAD
                 ViewBag.CategoryList = GetCategory();
                 return View(dbModel.FOODs.OrderByDescending(x => x.FoodId)
                         .Where(x => x.FoodName.StartsWith(search) || search == null).ToList());
+=======
+                return View(dbModel.FOODs.OrderByDescending(x => x.FoodId).ToList());
+>>>>>>> 16a0548b5aa6aeeea224c7b671a922a67b2d2f07
 
             }
         }

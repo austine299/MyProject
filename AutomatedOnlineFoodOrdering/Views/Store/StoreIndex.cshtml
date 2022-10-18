@@ -16,7 +16,11 @@
             <h1>Our Menu</h1>
             <div class="">
                 @Html.Action("ViewCategory", "Store")
+<<<<<<< HEAD
 
+=======
+                
+>>>>>>> 16a0548b5aa6aeeea224c7b671a922a67b2d2f07
             </div>
         </div>
         <div class="container food">
@@ -27,7 +31,11 @@
 
                         <div class="img-container">
                             @*<img class="img-responsive" title="Click to View Product details" src="~/FoodImg/@item.ImageUrl" />*@
+<<<<<<< HEAD
                             <img src="~/FoodImg/@item.ImageUrl" class="foodimg" style="width: 200px; " />
+=======
+                            <img src="~/Images/Plantainfufu3.jpg" class="foodimg" />
+>>>>>>> 16a0548b5aa6aeeea224c7b671a922a67b2d2f07
                             <div class="pull-right" style="position:relative; top:-180px;">
                                 @if (item.IsActive == true)
                                 {
@@ -49,6 +57,7 @@
                             <div class="price">
                                 <h2 class="">&#8358 @Html.DisplayFor(modelItem => item.FoodPrice)</h2>
                                 <div class="cart">
+<<<<<<< HEAD
                                     @if (item.FoodQuantity   > 0)
                                     {
                                         using (Html.BeginForm("AddToCart", "Store",
@@ -65,11 +74,20 @@
                                     }
 
 
+=======
+                                    @Html.ActionLink("OrderNow", "Order", new { }, new {@class= " glyphicon glyphicon-shopping-cart", 
+                                        @style="color:white; text-decoration:none" })
+                                    
+>>>>>>> 16a0548b5aa6aeeea224c7b671a922a67b2d2f07
                                 </div>
                             </div>
-
+                            
                         </div>
+<<<<<<< HEAD
 
+=======
+                        
+>>>>>>> 16a0548b5aa6aeeea224c7b671a922a67b2d2f07
                     </div>
                 </div>
 
@@ -83,6 +101,10 @@
         Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
     </div>
     <div>
+<<<<<<< HEAD
         @Html.PagedListPager(Model, page => Url.Action("StoreIndex","Store", new {page = page, category =ViewBag.category}))
+=======
+        @Html.PagedListPager(Model, page => Url.Action("Index", new {page = page, category =ViewBag.category}))
+>>>>>>> 16a0548b5aa6aeeea224c7b671a922a67b2d2f07
     </div>
 </div>

@@ -24,7 +24,10 @@
     </ActiveDebugTarget>
     <WebStackScaffolding_DbContextTypeFullName>AutomatedOnlineFoodOrdering.Models.DBModels</WebStackScaffolding_DbContextTypeFullName>
     <WebStackScaffolding_IsViewGenerationSelected>True</WebStackScaffolding_IsViewGenerationSelected>
+<<<<<<< HEAD
     <ProjectView>ShowAllFiles</ProjectView>
+=======
+>>>>>>> 16a0548b5aa6aeeea224c7b671a922a67b2d2f07
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
