@@ -30,20 +30,14 @@ namespace AutomatedOnlineFoodOrdering.Controllers.Store_Folder
             }
         }
 
-<<<<<<< HEAD
-        
-=======
->>>>>>> 16a0548b5aa6aeeea224c7b671a922a67b2d2f07
+
         public ActionResult StoreIndex(int? page, int? category)
         {
+
             using (DBModels dbModel = new DBModels())
             {
                 var pageNumber = page ?? 1;
-<<<<<<< HEAD
                 var pageSize = 9;
-=======
-                var pageSize = 10;
->>>>>>> 16a0548b5aa6aeeea224c7b671a922a67b2d2f07
                 if (category != null)
                 {
                     ViewBag.category = category;
@@ -55,11 +49,7 @@ namespace AutomatedOnlineFoodOrdering.Controllers.Store_Folder
                 {
                     return View(dbModel.FOODs.OrderByDescending(x => x.FoodId).ToPagedList(pageNumber, pageSize));
                 }
-<<<<<<< HEAD
                 
-=======
-                return View(dbModel.FOODs.OrderByDescending(x=>x.FoodId).ToPagedList(pageNumber, pageSize));
->>>>>>> 16a0548b5aa6aeeea224c7b671a922a67b2d2f07
 
             }
         }

@@ -24,124 +24,19 @@
             Name
         </th>
         <th>
-<<<<<<< HEAD
-            Price
         </th>
         <th>
-            Image Url
         </th>
         <th>
-            Category Name
         </th>
         <th>
-            IsActive
         </th>
         <th>
-=======
-            Food Description
-        </th>
-        <th>
-            Price
-        </th>
-        <th>
-            Food Quantity
-        </th>
-        <th>
-            Image Url
-        </th>
-        <th>
-            Category Name
-        </th>
-        <th>
-            IsActive
-        </th>
-        <th>
->>>>>>> 16a0548b5aa6aeeea224c7b671a922a67b2d2f07
-            Date Create
         </th>
         <th></th>
     </tr>
     @{
         List<SelectListItem> data = ViewBag.CategoryList;
-
-
-}
-    @if (Model.Count() == 0)
-    {
-<<<<<<< HEAD
-        <tr><td style="color:red; font-size:20px;">No Match found</td></tr>
-=======
-        <tr>
-            <td class=" table-aline">
-                @Html.DisplayFor(modelItem => item.FoodId)
-            </td>
-            <td class=" table-aline">
-                @Html.DisplayFor(modelItem => item.FoodName)
-            </td>
-            <td class=" table-aline">
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td class=" table-aline">
-                @Html.DisplayFor(modelItem => item.FoodPrice)
-            </td>
-            <td class=" table-aline">
-                @Html.DisplayFor(modelItem => item.FoodQuantity)
-            </td>
-            <td class=" table-aline">
-                @Html.DisplayFor(modelItem => item.ImageUrl)
-            </td>
-            <td class=" table-aline">
-                @Html.DisplayFor(modelItem => item.CategoryId)
-            </td>
-            <td class=" table-aline">
-                @Html.DisplayFor(modelItem => item.IsActive)
-            </td>
-            <td class=" table-aline">
-                @Html.DisplayFor(modelItem => item.createDate)
-            </td>
-            <td>
-                <button class="btn-primary option-btn">@Html.ActionLink("Edit", "EditFood", new { id = item.FoodId }) </button>
-                <button class="btn-primary option-btn">@Html.ActionLink("Details", "FoodDetails", new { id = item.FoodId }) </button>
-                <button class="btn-danger option-btn">@Html.ActionLink("Delete", "DeleteFood", new { id = item.FoodId })</button>
-            </td>
-        </tr>
->>>>>>> 16a0548b5aa6aeeea224c7b671a922a67b2d2f07
-    }
-    else
-    {
-        foreach (var item in Model)
-        {
-
-            <tr>
-                <td class=" table-aline">
-                    @Html.DisplayFor(modelItem => item.FoodId)
-                </td>
-                <td class=" table-aline">
-                    @Html.DisplayFor(modelItem => item.FoodName)
-                </td>
-                <td class=" table-aline">
-                    @Html.DisplayFor(modelItem => item.FoodPrice)
-                </td>
-                <td class=" table-aline">
-                    @Html.DisplayFor(modelItem => item.ImageUrl)
-                </td>
-                <td class=" table-aline">
-                    @Html.DisplayFor(modelItem => item.CategoryId)
-                </td>
-                <td class=" table-aline">
-                    @Html.DisplayFor(modelItem => item.IsActive)
-                </td>
-                <td class=" table-aline">
-                    @Html.DisplayFor(modelItem => item.createDate)
-                </td>
-                <td>
-                    <button class="btn-primary option-btn">@Html.ActionLink("Edit", "EditFood", new { id = item.FoodId }) </button>
-                    <button class="btn-primary option-btn">@Html.ActionLink("Details", "FoodDetails", new { id = item.FoodId }) </button>
-                    <button class="btn-danger option-btn">@Html.ActionLink("Delete", "DeleteFood", new { id = item.FoodId })</button>
-                </td>
-            </tr>
-        }
-    }
 </table>
 
 
